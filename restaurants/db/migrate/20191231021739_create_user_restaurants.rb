@@ -5,3 +5,4 @@ class CreateUserRestaurants < ActiveRecord::Migration[5.2]
       t.integer :item_id
   end
 end
+end 

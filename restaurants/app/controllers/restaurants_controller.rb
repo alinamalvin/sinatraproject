@@ -12,6 +12,7 @@ class RestaurantsController < ApplicationController
     # make a get request to "/restaurants"
     
     get '/restaurants' do 
+      @restaurants = Restaurant.all 
       erb :'restaurants/index'
     end 
   
