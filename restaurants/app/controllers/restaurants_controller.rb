@@ -3,9 +3,24 @@ class RestaurantsController < ApplicationController
   # CREATE
     # New 
     # make a get request to "/restaurants/new"
+    get '/restaurants/new' do
+      erb :'/restaurants/new'
+    end 
     
     # Create
      # make a post request to "/restaurants"
+     
+    post '/restaurants' do
+      restaurant = Restaurant.create(params)
+      if !restaurant.name.empty? && !restaurant.location.empty? && !restaurant.cuisine.empty? 
+        restaurant.save 
+        redirect '/restaurants'
+      else
+        @error = "Data invalid. Please try again"
+        erb :'/restaurants/new'
+      end 
+    end 
+    
      
   # READ
     # Index
