@@ -27,16 +27,25 @@ class RestaurantsController < ApplicationController
     # make a get request to "/restaurants"
     
     get '/restaurants' do 
-      @restaurants = Restaurant.all 
+      @restaurants = Restaurant.all.reverse
       erb :'restaurants/index'
     end 
   
     # Show
     # make a get request to "/restaurants/:id"
   
+  get '/restaurants/:id' do
+    @restaurant = Restaurant.find(params["id"])
+    erb :'restaurants/show'
+  end 
+  
   # UPDATE
     # Edit 
     # Make a get request to "/restaurants/:id/edit"
+    get '/restaurants/:id/edit' do
+      @restaurant = Restaurant.find(params["id"])
+      erb :'/restaurants/edit'
+    end 
     
     # Update 
     # Make a patch request to "/restaurants/:id"
