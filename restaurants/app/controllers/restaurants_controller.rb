@@ -50,15 +50,14 @@ class RestaurantsController < ApplicationController
     # Update 
     # Make a patch request to "/restaurants/:id"
    patch '/restaurants/:id' do
-     restaurant = Restaurant.new(params[:id])
-     restaurant.name = params["restaurant"]["name"] unless params["restaurant"]["name"].empty?
-     restaurant.location = params["restaurant"]["location"] unless params["restaurant"]["location"].empty?
-     restaurant.cuisine = params["restaurant"]["cuisine"] unless params["restaurant"]["cuisine"].empty?
+     restaurant = Restaurant.find(params[:id])
+     if !params["restaurant"]["name"].empty? && !params["restaurant"]["location"].empty? && !params["restaurant"]["cuisine"].empty? 
+     restaurant.update(params["restaurant"])
       else
         @error = "Data invalid. Please try again"
         erb :'/restaurants/edit'
       end 
-     restaurant.update(name: prarams["name"], location: params["location"], cuisine: ["cuisine"])
+
    end 
   # DESTROY
   # make a delete request to "/restaurants/:id"
