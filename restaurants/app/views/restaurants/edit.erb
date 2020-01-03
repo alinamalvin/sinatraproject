@@ -1,0 +1,12 @@
+<h1>Edit Restaurant for <% @restaurant.name %></h1>
+<p><%= @error %></p>
+<form action="/restaurants/<% @restaurant.id %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <label>Name</label> 
+  <input type="text" name="name" value="<% @restaurant.name %>">
+  <label>Location</label>
+  <input type="text" name="location" value="<% @restaurant.location %>">
+  <label>Cuisine</label>
+  <input type="text" name="cuisine" value="<% @restaurant.cuisine %>">
+  <button type="submit">Edit Restaurant</button> 
+</form>

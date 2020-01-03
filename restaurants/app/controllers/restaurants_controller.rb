@@ -43,13 +43,23 @@ class RestaurantsController < ApplicationController
     # Edit 
     # Make a get request to "/restaurants/:id/edit"
     get '/restaurants/:id/edit' do
-      @restaurant = Restaurant.find(params["id"])
+      @restaurant = Restaurant.find(params[:id])
       erb :'/restaurants/edit'
     end 
     
     # Update 
     # Make a patch request to "/restaurants/:id"
-  
+   patch '/restaurants/:id' do
+     restaurant = Restaurant.find(params[:id])
+      if !restaurant.name.empty? && !restaurant.location.empty? && !restaurant.cuisine.empty? 
+        restaurant.update 
+        redirect '/restaurants'
+      else
+        @error = "Data invalid. Please try again"
+        erb :'/restaurants/edit'
+      end 
+     restaurant.update(name: prarams["name"], location: params["location"], cuisine: ["cuisine"])
+   end 
   # DESTROY
   # make a delete request to "/restaurants/:id"
 end 
