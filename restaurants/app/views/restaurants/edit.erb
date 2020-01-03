@@ -3,10 +3,10 @@
 <form action="/restaurants/<% @restaurant.id %>" method="post">
   <input type="hidden" name="_method" value="patch">
   <label>Name</label> 
-  <input type="text" name="name" value="<% @restaurant.name %>">
+  <input type="text" name="restaurant[name]" value="<% @restaurant.name %>">
   <label>Location</label>
-  <input type="text" name="location" value="<% @restaurant.location %>">
+  <input type="text" name="restaurant[location]" value="<% @restaurant.location %>">
   <label>Cuisine</label>
-  <input type="text" name="cuisine" value="<% @restaurant.cuisine %>">
+  <input type="text" name="restaurant[cuisine]" value="<% @restaurant.cuisine %>">
   <button type="submit">Edit Restaurant</button> 
 </form>
