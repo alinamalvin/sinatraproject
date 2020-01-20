@@ -54,7 +54,7 @@ class RestaurantsController < ApplicationController
      @restaurant = Restaurant.find(params[:id])
     if !params["restaurant"]["name"].empty? &&        !params["restaurant"]["location"].empty? && !params["restaurant"]["cuisine"].empty? 
      @restaurant.update(params["restaurant"])
-     redirect '/restaurants'
+     redirect "/restaurants/#{params[:id]}"
     else
         @error = "Data invalid. Please try again"
         erb :'/restaurants/edit'
