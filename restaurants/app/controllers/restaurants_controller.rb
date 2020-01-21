@@ -60,6 +60,8 @@ class RestaurantsController < ApplicationController
         erb :'/restaurants/edit'
       end 
    end 
+    
+
    
    # DESTROY 
   # make a delete request to "/restaurants/:id"
