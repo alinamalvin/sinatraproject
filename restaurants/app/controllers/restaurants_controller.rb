@@ -65,5 +65,9 @@ class RestaurantsController < ApplicationController
    
    # DESTROY 
   # make a delete request to "/restaurants/:id"
-
+   delete '/restaurants/:id' do
+     restaurant = Restaurant.find(params[:id])
+     restaurant.destroy 
+     redirect '/restaurants'
+   end 
 end 
