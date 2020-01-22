@@ -4,7 +4,11 @@ class RestaurantsController < ApplicationController
     # New 
     # make a get request to "/restaurants/new"
     get '/restaurants/new' do
-      erb :'/restaurants/new'
+      if logged_in?
+         erb :'/restaurants/new'
+      else 
+        redirect '/login'
+      end
     end 
     
     # Create
@@ -27,16 +31,24 @@ class RestaurantsController < ApplicationController
     # make a get request to "/restaurants"
     
     get '/restaurants' do 
-      @restaurants = Restaurant.all.reverse
-      erb :'restaurants/index'
+       if logged_in?
+        @restaurants = Restaurant.all.reverse
+        erb :'restaurants/index'
+      else 
+        redirect '/login'
+      end
     end 
   
     # Show
     # make a get request to "/restaurants/:id"
   
   get '/restaurants/:id' do
-    @restaurant = Restaurant.find(params["id"])
-    erb :'restaurants/show'
+      if logged_in?
+        @restaurant = Restaurant.find(params["id"])
+        erb :'restaurants/show'
+     else 
+        redirect '/login'
+     end
   end 
   
   # UPDATE
