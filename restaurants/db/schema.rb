@@ -18,9 +18,9 @@ ActiveRecord::Schema.define(version: 2019_12_31_021739) do
     t.string "cuisine"
   end
 
-  create_table "user_items", force: :cascade do |t|
+  create_table "user_restaurants", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "item_id"
+    t.integer "restaurant_id"
   end
 
   create_table "users", force: :cascade do |t|
