@@ -15,7 +15,7 @@ class RestaurantsController < ApplicationController
      # make a post request to "/restaurants"
      
     post '/restaurants' do
-      restaurant = Restaurant.new(params)
+      current_user.restaurants.build(params)
       if !restaurant.name.empty? && !restaurant.location.empty? && !restaurant.cuisine.empty? 
         restaurant.save 
         redirect '/restaurants'
