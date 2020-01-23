@@ -6,8 +6,9 @@
   <%= restaurant.name %></a> - 
   <%= restaurant.location %> - 
   <%= restaurant.cuisine %> 
+   <% if restaurant.users && current_user.id == restaurant.users.id %> 
       <a href="/restaurants/<%= restaurant.id %>/edit">(edit)</a> </p>
 <% end  %>
-
+<% end  %>
 
 
