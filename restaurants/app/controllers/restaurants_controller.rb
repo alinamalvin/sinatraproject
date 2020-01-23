@@ -15,7 +15,7 @@ class RestaurantsController < ApplicationController
      # make a post request to "/restaurants"
      
     post '/restaurants' do
-      restaurant=current_user.restaurants.build(params)
+      restaurant=current_user.restaurant.build(params)
       if !restaurant.name.empty? && !restaurant.location.empty? && !restaurant.cuisine.empty? 
         restaurant.save 
         redirect '/restaurants'
@@ -68,7 +68,7 @@ class RestaurantsController < ApplicationController
     
    patch '/restaurants/:id' do
      @restaurant = Restaurant.find(params[:id])
-    if !params["restaurant"]["name"].empty? &&        !params["restaurant"]["location"].empty? && !params["restaurant"]["cuisine"].empty? 
+    if !params["restaurant"]["name"].empty? && !params["restaurant"]["location"].empty? && !params["restaurant"]["cuisine"].empty? 
      @restaurant.update(params["restaurant"])
      redirect "/restaurants/#{params[:id]}"
     else
