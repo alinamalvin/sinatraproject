@@ -6,10 +6,9 @@
   <%= restaurant.name %></a> - 
   <%= restaurant.location %> - 
   <%= restaurant.cuisine %> 
-  <% if session[:user_id]== restaurant[:user_id] %>
   <a href="/restaurants/<%= restaurant.id %>/edit">(edit)</a> </p>
  <% end  %>
- <% end  %>
+
 
 
 
