@@ -15,9 +15,9 @@ class RestaurantsController < ApplicationController
      # make a post request to "/restaurants"
      
     post '/restaurants' do
-      restaurant=current_user.restaurant.build(params)
-      if !restaurant.name.empty? && !restaurant.location.empty? && !restaurant.cuisine.empty? 
-        restaurant.save 
+      @restaurant=current_user.restaurants.build(params)
+      if !@restaurant.name.empty? && !@restaurant.location.empty? && !@restaurant.cuisine.empty? 
+        @restaurant.save 
         redirect '/restaurants'
       else
         @error = "Data invalid. Please try again"

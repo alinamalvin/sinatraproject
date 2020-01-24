@@ -1,13 +1,16 @@
 <h1>Restaurants</h1>
 <a href="/restaurants/new">Create a Restaurant</a>
-<% @restaurants.each do |restaurant| %>
+<% @restaurants.each  do |restaurant| %>
   <p> 
   <a href="/restaurants/<%= restaurant.id %>"> 
   <%= restaurant.name %></a> - 
   <%= restaurant.location %> - 
   <%= restaurant.cuisine %> 
+  <% if current_user.restaurants.include?(restaurant) %>
       <a href="/restaurants/<%= restaurant.id %>/edit">(edit)</a> </p>
 <% end  %>
+<% end  %>
+
 
 
 
