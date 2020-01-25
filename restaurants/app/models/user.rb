@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base 
-  validates_presence_of :username, :password
+  validates :username, :password, presence: true
+  validates_uniqueness_of :username
   has_many :restaurants
 end
