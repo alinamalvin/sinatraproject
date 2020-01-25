@@ -4,5 +4,10 @@
    <p><%= @restaurant.cuisine %></p>
    <form action="/restaurants/<%= @restaurant.id %>" method="post">
      <input type="hidden" name="_method" value="delete">
+     <% if current_user.restaurants.include?(@restaurant) %>
        <button type="submit">Delete Restaurant</button> 
+     <% end  %>
    </form>
+
+
+   
