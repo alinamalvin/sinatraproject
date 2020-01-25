@@ -10,22 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_25_165625) do
+ActiveRecord::Schema.define(version: 2020_01_25_225311) do
 
   create_table "restaurants", force: :cascade do |t|
     t.string "name"
     t.string "location"
     t.string "cuisine"
     t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
     t.string "username"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "password_digest"
+    t.string "password"
   end
 
 end

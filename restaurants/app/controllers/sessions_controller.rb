@@ -18,7 +18,8 @@ class SessionsController < ApplicationController
         erb :'users/login'
       end 
     end 
-  end 
+  end
+ 
   
   get '/logout' do
     session.clear 
