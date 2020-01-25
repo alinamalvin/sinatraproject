@@ -1,14 +1,14 @@
 class RestaurantsController < ApplicationController 
   
+  before do
+    require_login
+  end
+  
   # CREATE
     # New 
     # make a get request to "/restaurants/new"
     get '/restaurants/new' do
-      if logged_in?
-         erb :'/restaurants/new'
-      else 
-        redirect '/login'
-      end
+        erb :'/restaurants/new'
     end 
     
     # Create
