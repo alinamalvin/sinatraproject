@@ -20,7 +20,7 @@ Specs:
 - [x] Include user input validations
       'validates' method included in User class, the username/password cannot be blank-the precense for both is required
 - [x] BONUS - not required - Display validation failures to user with error message (example form URL e.g. /posts/new)
--     If account already exists, the arror message appears.
+      If account already exists, the error message appears.
 - [x] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
 
 Confirm
