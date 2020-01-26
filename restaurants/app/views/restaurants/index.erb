@@ -1,7 +1,7 @@
 <h1>Restaurants</h1>
-<p><small>(<%= current_user.restaurants.count %> restaurants logged so far)</small></p><
+<p><small>(<%= current_user.restaurants.count %> restaurants logged so far)</small></p>
 <a href="/restaurants/new">Create a Restaurant</a>
-<%  @restaurants.each do |restaurant| %>
+<% @restaurants.each do |restaurant| %>
   <p> 
   <a href="/restaurants/<%= restaurant.id %>"> 
   <%= restaurant.name %></a> - 
@@ -11,4 +11,8 @@
       <a href="/restaurants/<%= restaurant.id %>/edit">(edit)</a> </p>
 <% end %>
 <% end %>
+
+
+
+
 

@@ -31,6 +31,7 @@ class RestaurantsController < ApplicationController
     
     get '/restaurants' do 
        if logged_in?
+        @user_restaurants = current_user.restaurants.all
         @restaurants = Restaurant.all.reverse
         erb :'restaurants/index'
       else 
