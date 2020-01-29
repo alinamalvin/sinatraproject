@@ -59,13 +59,12 @@ class RestaurantsController < ApplicationController
     # Edit 
     # Make a get request to "/restaurants/:id/edit"
     get '/restaurants/:id/edit' do
-      if logged_in?
       @restaurant = Restaurant.find(params[:id])
+      redirect_if_not_allowed(@restaurant)
       erb :'/restaurants/edit'
-      else 
-        redirect '/login'
-     end
     end 
+
+  
     
     # Update 
     # Make a patch request to "/restaurants/:id"

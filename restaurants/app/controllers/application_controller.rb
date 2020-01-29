@@ -26,6 +26,12 @@ class ApplicationController < Sinatra::Base
        redirect '/login'
     end
   end
+  
+ def redirect_if_not_allowed(restaurant)
+   unless current_user.id==restaurant.user_id
+       redirect '/index'
+   end
+ end 
  
  end 
  
